@@ -14,6 +14,7 @@ namespace TextEditor31200
     public partial class Form1 : Form
     {
         private string fileName = "";
+        private string mozi;
 
         public Form1()
         {
@@ -91,6 +92,17 @@ namespace TextEditor31200
         private void RedoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rtTextArea.Redo();
+        }
+
+        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.mozi = rtTextArea.SelectedText;
+            rtTextArea.SelectedText = "";
+        }
+
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.mozi = rtTextArea.SelectedText;
         }
     }
 }

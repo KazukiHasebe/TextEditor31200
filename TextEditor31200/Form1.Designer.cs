@@ -149,11 +149,13 @@
             // 
             this.CutToolStripMenuItem.Name = "CutToolStripMenuItem";
             resources.ApplyResources(this.CutToolStripMenuItem, "CutToolStripMenuItem");
+            this.CutToolStripMenuItem.Click += new System.EventHandler(this.CutToolStripMenuItem_Click);
             // 
             // CopyToolStripMenuItem
             // 
             this.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem";
             resources.ApplyResources(this.CopyToolStripMenuItem, "CopyToolStripMenuItem");
+            this.CopyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
             // 
             // PasteToolStripMenuItem
             // 
