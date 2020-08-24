@@ -32,12 +32,7 @@ namespace TextEditor31200
             //[名前を付けて保存] ダイアログを表示
             if (sfdFileSave.ShowDialog() == DialogResult.OK)
             {
-                using (StreamWriter sw = new StreamWriter(sfdFileSave.FileName, false, Encoding.GetEncoding("utf-8")))
-                {
-                    sw.WriteLine(rtTextArea.Text);
-                    this.fileName = sfdFileSave.FileName;
-                    this.Text = fileName;
-                }
+                FileSave(sfdFileSave.FileName);
             }
         }
 
@@ -64,11 +59,7 @@ namespace TextEditor31200
             //ファイルがある場合
             if (File.Exists(fileName))
             {
-                using (StreamWriter sw = new StreamWriter(fileName, false, Encoding.GetEncoding("utf-8")))
-                {
-                    sw.WriteLine(rtTextArea.Text);
-                    this.Text = fileName;
-                }
+                FileSave(fileName);
 
             }
             //ファイルがない場合
@@ -77,6 +68,17 @@ namespace TextEditor31200
                 SaveNameToolStripMenuItem_Click(sender, e);
             }
 
+        }
+
+        private void FileSave(string fileName)
+        {
+            //SteamReaderクラスを使用してファイルを読み込み
+            using (StreamWriter sw = new StreamWriter(fileName, false, Encoding.GetEncoding("utf-8")))
+            {
+                sw.WriteLine(rtTextArea.Text);
+                this.fileName = fileName;
+                this.Text = this.fileName;
+            }
         }
 
         //元に戻す
