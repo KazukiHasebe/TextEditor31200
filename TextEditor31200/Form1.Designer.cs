@@ -53,6 +53,8 @@
             this.文字コードCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ヘルプHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rtTextArea = new System.Windows.Forms.RichTextBox();
+            this.cdColor = new System.Windows.Forms.ColorDialog();
+            this.fdFont = new System.Windows.Forms.FontDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +84,7 @@
             // 
             this.NewNToolStripMenuItem.Name = "NewNToolStripMenuItem";
             resources.ApplyResources(this.NewNToolStripMenuItem, "NewNToolStripMenuItem");
+            this.NewNToolStripMenuItem.Click += new System.EventHandler(this.NewNToolStripMenuItem_Click);
             // 
             // OpenToolStripMenuItem
             // 
@@ -127,17 +130,18 @@
             this.FontToolStripMenuItem});
             this.EditToolStripMenuItem.Name = "EditToolStripMenuItem";
             resources.ApplyResources(this.EditToolStripMenuItem, "EditToolStripMenuItem");
+            this.EditToolStripMenuItem.Click += new System.EventHandler(this.EditToolStripMenuItem_Click);
             // 
             // UndoToolStripMenuItem
             // 
-            this.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem";
             resources.ApplyResources(this.UndoToolStripMenuItem, "UndoToolStripMenuItem");
+            this.UndoToolStripMenuItem.Name = "UndoToolStripMenuItem";
             this.UndoToolStripMenuItem.Click += new System.EventHandler(this.UndoToolStripMenuItem_Click);
             // 
             // RedoToolStripMenuItem
             // 
-            this.RedoToolStripMenuItem.Name = "RedoToolStripMenuItem";
             resources.ApplyResources(this.RedoToolStripMenuItem, "RedoToolStripMenuItem");
+            this.RedoToolStripMenuItem.Name = "RedoToolStripMenuItem";
             this.RedoToolStripMenuItem.Click += new System.EventHandler(this.RedoToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
@@ -159,13 +163,15 @@
             // 
             // PasteToolStripMenuItem
             // 
-            this.PasteToolStripMenuItem.Name = "PasteToolStripMenuItem";
             resources.ApplyResources(this.PasteToolStripMenuItem, "PasteToolStripMenuItem");
+            this.PasteToolStripMenuItem.Name = "PasteToolStripMenuItem";
+            this.PasteToolStripMenuItem.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
             // 
             // DeleteToolStripMenuItem
             // 
             this.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem";
             resources.ApplyResources(this.DeleteToolStripMenuItem, "DeleteToolStripMenuItem");
+            this.DeleteToolStripMenuItem.Click += new System.EventHandler(this.DeleteToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -176,11 +182,13 @@
             // 
             this.ColorToolStripMenuItem.Name = "ColorToolStripMenuItem";
             resources.ApplyResources(this.ColorToolStripMenuItem, "ColorToolStripMenuItem");
+            this.ColorToolStripMenuItem.Click += new System.EventHandler(this.ColorToolStripMenuItem_Click);
             // 
             // FontToolStripMenuItem
             // 
             this.FontToolStripMenuItem.Name = "FontToolStripMenuItem";
             resources.ApplyResources(this.FontToolStripMenuItem, "FontToolStripMenuItem");
+            this.FontToolStripMenuItem.Click += new System.EventHandler(this.FontToolStripMenuItem_Click);
             // 
             // 文字コードCToolStripMenuItem
             // 
@@ -194,6 +202,7 @@
             // 
             // rtTextArea
             // 
+            this.rtTextArea.EnableAutoDragDrop = true;
             resources.ApplyResources(this.rtTextArea, "rtTextArea");
             this.rtTextArea.Name = "rtTextArea";
             // 
@@ -238,6 +247,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem ColorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FontToolStripMenuItem;
+        private System.Windows.Forms.ColorDialog cdColor;
+        private System.Windows.Forms.FontDialog fdFont;
     }
 }
 
