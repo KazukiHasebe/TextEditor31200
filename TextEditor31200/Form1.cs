@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,39 +24,19 @@ namespace TextEditor31200
         //新規作成
         private void NewNToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (rtTextArea.Text != "")
+            int check = SaveDialog(sender, e);
+
+            if (check == 0)
             {
-                DialogResult result = MessageBox.Show("ファイルを保存しますか？", "質問",
-                                  MessageBoxButtons.YesNoCancel,
-                                  MessageBoxIcon.Exclamation,
-                                  MessageBoxDefaultButton.Button2);
-
-                //何が選択されたか調べる
-                if (result == DialogResult.Yes)
-                {
-                    //「はい」が選択された時
-                    SaveToolStripMenuItem_Click(sender, e);
-
-                    rtTextArea.Text = "";
-                }
-                else if (result == DialogResult.No)
-                {
-                    //「いいえ」が選択された時
-                    rtTextArea.Text = "";
-                }
-                else if (result == DialogResult.Cancel)
-                {
-                    //「キャンセル」が選択された時
-                    return;
-                }
+                rtTextArea.Text = "";
+                this.fileName = "";
+                this.Text = "無題";
             }
-
-            this.fileName = "";
-            this.Text = "テキストエディタ";
+            
         }
 
-        //終了
-        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        //警告ダイアログメソッド
+        private int SaveDialog(object sender, EventArgs e)
         {
             if (rtTextArea.Text != "")
             {
@@ -69,15 +50,35 @@ namespace TextEditor31200
                 {
                     //「はい」が選択された時
                     SaveToolStripMenuItem_Click(sender, e);
+
+                    return 0;
                 }
-                else if (result == DialogResult.Cancel)
+                else if (result == DialogResult.No)
+                {
+                    //「いいえ」が選択された時
+                    return 0;
+                }
+                else
                 {
                     //「キャンセル」が選択された時
-                    return;
+                    return 1;
                 }
             }
+            else
+            {
+                return 0;
+            }
+        }
 
-            Application.Exit();
+        //終了
+        private void ExitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int check = SaveDialog(sender, e);
+
+            if (check == 0)
+            {
+                Application.Exit();
+            }
         }
 
         //名前を付けて保存
@@ -86,13 +87,15 @@ namespace TextEditor31200
             //[名前を付けて保存] ダイアログを表示
             if (sfdFileSave.ShowDialog() == DialogResult.OK)
             {
-                FileSave(sfdFileSave.FileName);
+                FileSave(sfdFileSave.FileName + ".rtf");
             }
         }
 
         //開く
         private void OpenToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveDialog(sender, e);
+
             //[開く] ダイアログを表示
             if (ofdFileOpen.ShowDialog() == DialogResult.OK)
             {
@@ -101,7 +104,7 @@ namespace TextEditor31200
                 {
                     rtTextArea.Text = sr.ReadToEnd();
                     this.fileName = ofdFileOpen.FileName;
-                    this.Text = fileName;
+                    this.Text = this.fileName;
                 }
             }
         }
@@ -123,10 +126,10 @@ namespace TextEditor31200
 
         private void FileSave(string fileName)
         {
-            //SteamReaderクラスを使用してファイルを読み込み
             using (StreamWriter sw = new StreamWriter(fileName, false, Encoding.GetEncoding("utf-8")))
             {
                 sw.WriteLine(rtTextArea.Text);
+                
                 this.fileName = fileName;
                 this.Text = this.fileName;
             }
@@ -178,13 +181,13 @@ namespace TextEditor31200
         private void EditMenuMaskCheck()
         {
             //元に戻すマスク
-            UndoToolStripMenuItem.Enabled = rtTextArea.CanUndo ? true : false;
+            UndoToolStripMenuItem.Enabled = rtTextArea.CanUndo;
 
             //やり直しマスク
-            RedoToolStripMenuItem.Enabled = rtTextArea.CanRedo ? true : false;
+            RedoToolStripMenuItem.Enabled = rtTextArea.CanRedo;
 
             //削除、切り取り、コピーマスク
-            if (rtTextArea.SelectedText != "")
+            if (rtTextArea.SelectedText.Length > 0)
             {
                 CutToolStripMenuItem.Enabled = true;
                 CopyToolStripMenuItem.Enabled = true;
@@ -198,7 +201,7 @@ namespace TextEditor31200
             }
 
             //貼り付けマスク
-            PasteToolStripMenuItem.Enabled = Clipboard.GetDataObject().GetDataPresent(DataFormats.Text) ? true : false;
+            PasteToolStripMenuItem.Enabled = Clipboard.GetDataObject().GetDataPresent(DataFormats.Rtf);
         }
 
         //色
@@ -207,7 +210,7 @@ namespace TextEditor31200
             DialogResult dr = cdColor.ShowDialog();
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
-                rtTextArea.ForeColor = cdColor.Color;
+                rtTextArea.SelectionColor = cdColor.Color;
             }
         }
 
@@ -217,7 +220,17 @@ namespace TextEditor31200
             DialogResult dr = fdFont.ShowDialog();
             if (dr == System.Windows.Forms.DialogResult.OK)
             {
-                rtTextArea.Font = fdFont.Font;
+                rtTextArea.SelectionFont = fdFont.Font;
+            }
+        }
+
+        private void Form1_FormClosing(object sender, CancelEventArgs e)
+        {
+            int check = SaveDialog(sender, e);
+
+            if (check == 1)
+            {
+                e.Cancel = true;
             }
         }
     }
