@@ -187,7 +187,7 @@
     <value>Ctrl+Z</value>
   </data>
   <data name="UndoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="UndoToolStripMenuItem.Text" xml:space="preserve">
     <value>元に戻す(&amp;U)</value>
@@ -199,19 +199,19 @@
     <value>Ctrl+Y</value>
   </data>
   <data name="RedoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="RedoToolStripMenuItem.Text" xml:space="preserve">
     <value>やり直し(&amp;R)</value>
   </data>
   <data name="toolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="CutToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
     <value>Ctrl+X</value>
   </data>
   <data name="CutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="CutToolStripMenuItem.Text" xml:space="preserve">
     <value>切り取り(&amp;T)</value>
@@ -220,7 +220,7 @@
     <value>Ctrl+C</value>
   </data>
   <data name="CopyToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="CopyToolStripMenuItem.Text" xml:space="preserve">
     <value>コピー(&amp;C)</value>
@@ -232,7 +232,7 @@
     <value>Ctrl+V</value>
   </data>
   <data name="PasteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="PasteToolStripMenuItem.Text" xml:space="preserve">
     <value>貼り付け(&amp;P)</value>
@@ -241,22 +241,22 @@
     <value>Del</value>
   </data>
   <data name="DeleteToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="DeleteToolStripMenuItem.Text" xml:space="preserve">
     <value>削除(&amp;D)</value>
   </data>
   <data name="toolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 6</value>
+    <value>177, 6</value>
   </data>
   <data name="ColorToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="ColorToolStripMenuItem.Text" xml:space="preserve">
     <value>色...</value>
   </data>
   <data name="FontToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>173, 22</value>
+    <value>180, 22</value>
   </data>
   <data name="FontToolStripMenuItem.Text" xml:space="preserve">
     <value>フォント...</value>
@@ -273,10 +273,16 @@
   <data name="文字コードCToolStripMenuItem.Text" xml:space="preserve">
     <value>文字コード(&amp;C)</value>
   </data>
-  <data name="ヘルプHToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="VersionToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="VersionToolStripMenuItem.Text" xml:space="preserve">
+    <value>バージョン情報...</value>
+  </data>
+  <data name="HelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>65, 20</value>
   </data>
-  <data name="ヘルプHToolStripMenuItem.Text" xml:space="preserve">
+  <data name="HelpToolStripMenuItem.Text" xml:space="preserve">
     <value>ヘルプ(&amp;H)</value>
   </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
@@ -474,10 +480,10 @@
   <data name="&gt;&gt;文字コードCToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ヘルプHToolStripMenuItem.Name" xml:space="preserve">
-    <value>ヘルプHToolStripMenuItem</value>
+  <data name="&gt;&gt;HelpToolStripMenuItem.Name" xml:space="preserve">
+    <value>HelpToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;ヘルプHToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;HelpToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cdColor.Name" xml:space="preserve">
@@ -491,6 +497,12 @@
   </data>
   <data name="&gt;&gt;fdFont.Type" xml:space="preserve">
     <value>System.Windows.Forms.FontDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;VersionToolStripMenuItem.Name" xml:space="preserve">
+    <value>VersionToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;VersionToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>Form1</value>

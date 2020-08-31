@@ -51,10 +51,11 @@
             this.ColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.文字コードCToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ヘルプHToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rtTextArea = new System.Windows.Forms.RichTextBox();
             this.cdColor = new System.Windows.Forms.ColorDialog();
             this.fdFont = new System.Windows.Forms.FontDialog();
+            this.VersionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +65,7 @@
             this.FileToolStripMenuItem,
             this.EditToolStripMenuItem,
             this.文字コードCToolStripMenuItem,
-            this.ヘルプHToolStripMenuItem});
+            this.HelpToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -195,16 +196,24 @@
             this.文字コードCToolStripMenuItem.Name = "文字コードCToolStripMenuItem";
             resources.ApplyResources(this.文字コードCToolStripMenuItem, "文字コードCToolStripMenuItem");
             // 
-            // ヘルプHToolStripMenuItem
+            // HelpToolStripMenuItem
             // 
-            this.ヘルプHToolStripMenuItem.Name = "ヘルプHToolStripMenuItem";
-            resources.ApplyResources(this.ヘルプHToolStripMenuItem, "ヘルプHToolStripMenuItem");
+            this.HelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.VersionToolStripMenuItem});
+            this.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem";
+            resources.ApplyResources(this.HelpToolStripMenuItem, "HelpToolStripMenuItem");
             // 
             // rtTextArea
             // 
             resources.ApplyResources(this.rtTextArea, "rtTextArea");
             this.rtTextArea.EnableAutoDragDrop = true;
             this.rtTextArea.Name = "rtTextArea";
+            // 
+            // VersionToolStripMenuItem
+            // 
+            this.VersionToolStripMenuItem.Name = "VersionToolStripMenuItem";
+            resources.ApplyResources(this.VersionToolStripMenuItem, "VersionToolStripMenuItem");
+            this.VersionToolStripMenuItem.Click += new System.EventHandler(this.VersionToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -235,7 +244,7 @@
         private System.Windows.Forms.ToolStripMenuItem ExitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EditToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 文字コードCToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ヘルプHToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem HelpToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.RichTextBox rtTextArea;
         private System.Windows.Forms.ToolStripMenuItem UndoToolStripMenuItem;
@@ -250,6 +259,7 @@
         private System.Windows.Forms.ToolStripMenuItem FontToolStripMenuItem;
         private System.Windows.Forms.ColorDialog cdColor;
         private System.Windows.Forms.FontDialog fdFont;
+        private System.Windows.Forms.ToolStripMenuItem VersionToolStripMenuItem;
     }
 }
 

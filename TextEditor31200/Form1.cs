@@ -233,5 +233,14 @@ namespace TextEditor31200
                 e.Cancel = true;
             }
         }
+
+        //バージョン情報
+        private void VersionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //VersionForm versionForm = new VersionForm();
+            //versionForm.ShowDialog();     //モーダルダイアログとして表示
+
+            VersionForm.GetInstance().Show();   //シングルトン   
+        }
     }
 }
