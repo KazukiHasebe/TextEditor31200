@@ -99,14 +99,12 @@ namespace TextEditor31200
             //[開く] ダイアログを表示
             if (ofdFileOpen.ShowDialog() == DialogResult.OK)
             {
-                //SteamReaderクラスを使用してファイルを読み込み
-                using (StreamReader sr = new StreamReader(ofdFileOpen.FileName, Encoding.GetEncoding("utf-8"), false))
-                {
-                    rtTextArea.Text = sr.ReadToEnd();
-                    this.fileName = ofdFileOpen.FileName;
-                    this.Text = this.fileName;
-                }
+                rtTextArea.LoadFile(ofdFileOpen.FileName);
+                this.fileName = ofdFileOpen.FileName;
+                this.Text = this.fileName;
             }
+
+            
         }
 
         //上書き保存
@@ -126,13 +124,9 @@ namespace TextEditor31200
 
         private void FileSave(string fileName)
         {
-            using (StreamWriter sw = new StreamWriter(fileName, false, Encoding.GetEncoding("utf-8")))
-            {
-                sw.WriteLine(rtTextArea.Text);
-                
-                this.fileName = fileName;
-                this.Text = this.fileName;
-            }
+            rtTextArea.SaveFile(sfdFileSave.FileName + ".rtf");
+            this.fileName = fileName;
+            this.Text = this.fileName;
         }
 
         //元に戻す
